@@ -18,3 +18,6 @@ jobs:
     - uses: hoverkraft-tech/compose-action@v1.5.1
       with:
         compose-file: "./docker-compose.yml"
+    - name: docker push to registry
+      run: docker push eliyahoulevy727/super-app:{{ github.sha }}-${{ github.run_number }}
+    
