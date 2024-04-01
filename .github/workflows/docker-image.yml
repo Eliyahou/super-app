@@ -20,7 +20,7 @@ jobs:
         compose-file: "./docker-compose.yml"
    
     - name: login to docker hub
-      run: docker login - u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
+      run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
     
     - name: docker push to registry
       run: docker push eliyahoulevy727/super-app:${{ github.sha }}-${{ github.run_number }}
