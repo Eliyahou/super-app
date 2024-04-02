@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
-
 jobs:
 
   build:
@@ -14,20 +13,24 @@ jobs:
     runs-on: ubuntu-latest
  
     steps:
+    # need checkout before using compose-action
+    - name: checkout code
+      uses: actions/checkout@v3
+   # - uses: hoverkraft-tech/compose-action@v1.5.1
+   #   with:
+   #     compose-file: "./docker-compose.yml"
 
-    - name: Install Docker Compose
-      run: |
-        # Authenticate with Docker Hub
-          echo "${DOCKER_PASSWORD}" | docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
-          checkout
-          docker-compose build
-          docker tag eliyahoulevy727/super-app:latest eliyahoulevy727/super-app:${{ github.run_naumber }}
-          docker push eliyahoulevy727/super-app:${{ github.run_naumber }}
-          docker images
+    - name: Build docker
+      run: | 
+        echo ---Building and starting up docker---
+        docker compose -f ./docker-compose.yml -d
+        echo ---Containers up---
+    - name: create tag
+      run: docker tag eliyahoulevy727/super-app:latest eliyahoulevy727/super-app:${{ github.run_naumber }}
    
-  
-
-
-
-
-
+    - name: login to docker hub
+      run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
+    
+    - name: docker push to registry
+      run: docker image push eliyahoulevy727/super-app:${{ github.run_naumber }}
+    
