@@ -16,15 +16,15 @@ jobs:
     # need checkout before using compose-action
     - name: checkout code
       uses: actions/checkout@v3
-    #- uses: hoverkraft-tech/compose-action@v1.5.1
-    #  with:
-    #    compose-file: "./docker-compose.yml"
+    - uses: hoverkraft-tech/compose-action@v1.5.1
+      with:
+        compose-file: "./docker-compose.yml"
 
-    - name: Build docker
-      run: | 
-        echo ---Building and starting up docker---
-        docker-compose -f ./docker-compose.yml  -d  --build
-        echo ---Containers up---
+   # - name: Build docker
+   #   run: | 
+   #     echo ---Building and starting up docker---
+   #     docker-compose -f ./docker-compose.yml  -d  --build
+   #     echo ---Containers up---
     - name: create tag
       run: docker tag super_app eliyahoulevy727/super-app:${{ github.run_naumber }}
    
