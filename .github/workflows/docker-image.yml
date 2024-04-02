@@ -23,10 +23,10 @@ jobs:
     - name: Build docker
       run: | 
         echo ---Building and starting up docker---
-        docker-compose -f ./docker-compose.yml -p super-app -d 
+        docker-compose -f ./docker-compose.yml -p super_app -d  --build
         echo ---Containers up---
     - name: create tag
-      run: docker tag super-app eliyahoulevy727/super-app:${{ github.run_naumber }}
+      run: docker tag super_app eliyahoulevy727/super-app:${{ github.run_naumber }}
    
     - name: login to docker hub
       run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
