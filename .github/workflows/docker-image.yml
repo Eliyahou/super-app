@@ -18,6 +18,9 @@ jobs:
     - uses: hoverkraft-tech/compose-action@v1.5.1
       with:
         compose-file: "./docker-compose.yml"
+
+    - name: Build the docker Image
+      run: docker compose build
    
     - name: login to docker hub
       run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
