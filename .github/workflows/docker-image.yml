@@ -23,13 +23,12 @@ jobs:
     - name: Build docker
       run: | 
         echo ---Building and starting up docker---
-        docker-compose -f ./docker-compose.yml -p testing up -d 
+        docker-compose -f ./docker-compose.yml -p testing up -d --tag eliyahoulevy727/super-app:${{ github.run_naumber }}
         echo ---Containers up---
    
     - name: login to docker hub
       run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
-    - name: create tag
-      run: docker tag eliyahoulevy727/super-app:${{ github.run_naumber }}
+    
     - name: docker push to registry
       run: docker push eliyahoulevy727/super-app:${{ github.run_naumber }}
     
