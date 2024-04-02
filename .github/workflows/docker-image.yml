@@ -23,7 +23,7 @@ jobs:
     - name: Build docker
       run: | 
         echo ---Building and starting up docker---
-        docker compose -f ./docker-compose.yml  -d -p super_app eliyahoulevy727/super-app:${{ github.run_naumber }} --build
+        docker compose -f ./docker-compose.yml  -d --build
         echo ---Containers up---
     - name: create tag
       run: docker tag super_app eliyahoulevy727/super-app:${{ github.run_naumber }}
