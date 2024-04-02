@@ -20,7 +20,7 @@ jobs:
       with:
         compose-file: "./docker-compose.yml"
 
-    - name: Build docker
+     # - name: Build docker
      # run: | 
      #  echo ---Building and starting up docker---
      #   docker-compose -f ./docker-compose.yml -p test-d
