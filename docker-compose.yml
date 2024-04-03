@@ -17,6 +17,7 @@ services:
     
   db:
     image: mysql:8.0.28
+    image: "eliyahoulevy727/super-app:3"  
     ports:
       - "3306:3306"
     environment:
