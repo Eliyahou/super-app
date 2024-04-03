@@ -17,12 +17,13 @@ services:
     
   db:
     build:
-     image: mysql:8.0.28
-    image: "eliyahoulevy727/super-app:3"  
+     image: mysql:8.0.28   
     ports:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: 'password' 
       MYSQL_DATABASE: 'super-app'
+
+ 
     
    
