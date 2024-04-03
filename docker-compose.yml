@@ -16,8 +16,7 @@ services:
     image: "eliyahoulevy727/super-app:2"    
     
   db:
-    build:
-     image: mysql:8.0.28   
+    image: mysql:8.0.28   
     ports:
       - "3306:3306"
     environment:
