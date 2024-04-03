@@ -29,13 +29,13 @@ jobs:
       run: docker compose config --images
 
     - name: change docker tag db
-      run: docker image tag mysql:8.0.28 seliyahoulevy727/super-app-db:latest 
+      run: docker image tag mysql:8.0.28 eliyahoulevy727/super-app-db:latest 
    
     - name: change docker tag frontend
-      run: docker image tag super-app-frontend seliyahoulevy727/super-app-frontend:latest
+      run: docker image tag super-app-frontend eliyahoulevy727/super-app-frontend:latest
     
     - name: change docker tag backend
-      run: docker image tag super-app-backend seliyahoulevy727/super-app-backend:latest   
+      run: docker image tag super-app-backend eliyahoulevy727/super-app-backend:latest   
    
     - name: login to docker hub
       run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
