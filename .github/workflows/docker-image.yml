@@ -9,7 +9,6 @@ on:
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
  
     steps:
@@ -27,19 +26,14 @@ jobs:
      #   echo ---Containers up---
     - name: get docker images
       run: docker compose config --images
-
     - name: change docker tag db
-      run: docker image tag mysql:8.0.28 eliyahoulevy727/super-app-db:latest 
-   
-    - name: change docker tag frontend
-      run: docker image tag super-app-frontend eliyahoulevy727/super-app-frontend:latest
-    
-    - name: change docker tag backend
-      run: docker image tag super-app-backend eliyahoulevy727/super-app-backend:latest   
-   
+      run: |
+        docker tag mysql:8.0.28 eliyahoulevy727/super-app-db:latest 
+        docker tag super-app-frontend eliyahoulevy727/super-app-frontend:latest
+        docker tag super-app-backend eliyahoulevy727/super-app-backend:latest
+        
     - name: login to docker hub
       run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
-    
     - name: docker push to registry
       run: docker compose push --include-deps
-    
+        
