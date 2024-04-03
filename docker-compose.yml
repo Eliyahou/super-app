@@ -4,7 +4,7 @@ services:
     build: node
     ports:
       - "3000:3000"
-    image: "eliyahoulevy727/super-app:node"  
+    image: "eliyahoulevy727/super-app:1"  
 
 
 
@@ -13,7 +13,7 @@ services:
     build: php
     ports:
       - "80:80"
-    image: "eliyahoulevy727/super-app:php"    
+    image: "eliyahoulevy727/super-app:2"    
     
   db:
     image: mysql:8.0.28
@@ -22,5 +22,5 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 'password' 
       MYSQL_DATABASE: 'super-app'
-     image: "eliyahoulevy727/super-app:db"  
+    
    
