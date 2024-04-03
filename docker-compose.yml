@@ -1,23 +1,20 @@
 version: "3.1"
 services:
   backend:
-    build: ./
-    image: eliyahoulevy727/super-app/backend
+    build: node
     ports:
       - "3000:3000"
  
   frontend:
-    build: ./
-    image: eliyahoulevy727/super-app/frontend
+    build: php
     ports:
       - "80:80"
     
   db:
-    image: image: mysql:8.0.28
+    image: mysql:8.0.28
     ports:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: 'password' 
       MYSQL_DATABASE: 'super-app'
-  
    
