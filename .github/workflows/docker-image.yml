@@ -28,7 +28,7 @@ jobs:
     needs: build
     steps:
     - name: docker up
-      run: docker compose up -f "./docker-compose.yml" -d 
+      run: docker-compose up -f "./docker-compose.yml" -d 
     - name: get docker images
       run: docker compose config --images
     
