@@ -21,8 +21,8 @@ jobs:
 
     - name: Build docker
       run: |
-         docker-compose up -d -f "./docker-compose.yml"
-         docker-compose build
+       
+         docker-compose build --with-dependencies
          
     - name: get docker images
       run: docker compose config --images
