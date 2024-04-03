@@ -22,7 +22,7 @@ jobs:
     - name: Build docker
       run: |
        
-         docker compose build --with-dependencies
+         docker compose build 
          
     - name: get docker images
       run: docker compose config --images
