@@ -25,14 +25,7 @@ jobs:
      #   docker-compose -f ./docker-compose.yml -p test-d
      #   echo ---Containers up---
    
-    - name: change docker tag db
-      run:  docker tag mysql:8.0.28 eliyahoulevy727/super-app-db:latest 
-    
-    - name: change docker tag frontend
-      run:  docker tag super-app-frontend eliyahoulevy727/super-app-frontend:latest
-    
-    - name: change docker tag backend
-      run:  docker tag super-app-backend eliyahoulevy727/super-app-backend:latest
+   
  
     - name: get docker images
       run: docker compose config --images
