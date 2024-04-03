@@ -25,7 +25,9 @@ jobs:
      #  echo ---Building and starting up docker---
      #   docker-compose -f ./docker-compose.yml -p test-d
      #   echo ---Containers up---
-     
+    - name: get docker images
+      run: docker compose images
+      
     - name: login to docker hub
       run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
     
