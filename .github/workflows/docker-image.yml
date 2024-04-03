@@ -20,8 +20,10 @@ jobs:
    #    compose-file: "./docker-compose.yml"
 
     - name: Build docker
-      run: docker-compose up -d -f "./docker-compose.yml" 
-   
+      run: |
+         docker-compose up -d -f "./docker-compose.yml"
+         docker-compose build
+         
     - name: get docker images
       run: docker compose config --images
     
