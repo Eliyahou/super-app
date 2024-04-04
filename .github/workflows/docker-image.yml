@@ -24,10 +24,7 @@ jobs:
       run: docker compose config --images
     
     - name: docker change tag
-      run: |
-             docker tag super-app-backend  eliyahoulevy727/super-app-backend:latest
-             docker tag super-app-frontend eliyahoulevy727/super-app-frontend:latest
-             docker tag mysql:8.0.28 eliyahoulevy727/super-app-db:latest   
+      run:  docker tag mysql:8.0.28 eliyahoulevy727/super-app-db:latest   
 
    
  
