@@ -2,15 +2,16 @@ version: "3.1"
 services:
   backend:
     build: node
+    image: eliyahoulevy727/super-app-backend:latest  
     ports:
       - "3000:3000"
-    image: eliyahoulevy727/super-app-backend:latest  
+   
     
   frontend:
     build: php
+    image:  image: eliyahoulevy727/super-app-frontend:latest
     ports:
       - "80:80"
-    image:  image: eliyahoulevy727/super-app-frontend:latest  
     
   db:
     image: mysql:8.0.28   
