@@ -24,7 +24,7 @@ jobs:
       run:  docker image tag mysql:8.0.28 eliyahoulevy727/super-app-db:latest   
  
     - name: docker push to registry
-      run: docker compose push --include-deps
+      run: docker compose push 
 
     - name: Login to Docker Hub
       uses: docker/login-action@v2
