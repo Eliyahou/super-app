@@ -11,12 +11,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file docker-compose.yml 
-   # - uses: hoverkraft-tech/compose-action@v1.5.1
-   #   with:
-   #     compose-file: "./docker-compose.yml"
+    - uses: actions/checkout@v4
+    - uses: hoverkraft-tech/compose-action@v1.5.1
+      with:
+        compose-file: "./docker-compose.yml"
      
  
     - name: get docker images
