@@ -9,7 +9,7 @@ services:
     
   frontend:
     build: php
-    image:  image: eliyahoulevy727/super-app-frontend:latest
+    image: eliyahoulevy727/super-app-frontend:latest
     ports:
       - "80:80"
     
