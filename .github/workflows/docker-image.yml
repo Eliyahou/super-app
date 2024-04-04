@@ -10,19 +10,14 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
- 
     steps:
-    - name: checkout code
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file docker-compose.yml 
    # - uses: hoverkraft-tech/compose-action@v1.5.1
    #   with:
    #     compose-file: "./docker-compose.yml"
-    - name: build Images
-      run: | 
-             docker compose build 
-             docker compose config --images
-             docker-compose ps
-   
+     
  
     - name: get docker images
       run: docker compose config --images
