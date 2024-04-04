@@ -22,9 +22,8 @@ jobs:
     - name: Build docker
       run: |
              docker-compose build
-             docker compose config --images
-             docker tag super-app-backend  super-app-backend:latest
-             docker tag super-app-frontend super-app-frontend:latest
+             docker tag super-app-backend  eliyahoulevy727/super-app-backend:latest
+             docker tag super-app-frontend eliyahoulevy727/super-app-frontend:latest
              docker tag mysql:8.0.28 eliyahoulevy727/super-app-db:latest
             
    
