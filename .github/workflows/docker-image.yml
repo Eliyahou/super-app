@@ -16,12 +16,11 @@ jobs:
     - name: checkout code
       uses: actions/checkout@v2
    # - uses: hoverkraft-tech/compose-action@v1.5.1
-   #   with:
-   #    compose-file: "./docker-compose.yml"
+      with:
+       compose-file: "./docker-compose.yml"
  
     - name: Build docker
       run: |
-             docker-compose build
              docker tag super-app-backend  eliyahoulevy727/super-app-backend:latest
              docker tag super-app-frontend eliyahoulevy727/super-app-frontend:latest
              docker tag mysql:8.0.28 eliyahoulevy727/super-app-db:latest
