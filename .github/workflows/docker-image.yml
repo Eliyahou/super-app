@@ -17,7 +17,7 @@ jobs:
         compose-file: "./docker-compose.yml"
         services: |
           frontend
-          backand
+          backend
           db
        
  
