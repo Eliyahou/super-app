@@ -21,10 +21,11 @@ jobs:
 
     - name: Build docker
       run: | 
+            docker compose up --build
             docker tag super-app-backend eliyahoulevy727/super-app-backend:latest
             docker tag super-app-frontend eliyahoulevy727/super-app-frontend:latest
             docker tag mysql:8.0.28 eliyahoulevy727/super-app-db:latest |
-            docker compose up --build
+            
  
  
     - name: get docker images
