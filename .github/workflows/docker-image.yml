@@ -15,7 +15,11 @@ jobs:
     - uses: hoverkraft-tech/compose-action@v1.5.1
       with:
         compose-file: "./docker-compose.yml"
-     
+        services: |
+          frontend
+          backand
+          db
+       
  
     - name: get docker images
       run: docker compose config --images
