@@ -14,9 +14,11 @@ jobs:
     steps:
     - name: checkout code
       uses: actions/checkout@v3
-    - uses: hoverkraft-tech/compose-action@v1.5.1
-      with:
-        compose-file: "./docker-compose.yml"
+   # - uses: hoverkraft-tech/compose-action@v1.5.1
+   #   with:
+   #     compose-file: "./docker-compose.yml"
+    - name: build Images
+      run: docker-compose build
  
     - name: get docker images
       run: docker compose config --images
