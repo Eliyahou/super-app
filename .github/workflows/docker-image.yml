@@ -20,26 +20,12 @@ jobs:
    #    compose-file: "./docker-compose.yml"
 
     - name: Build docker
-      run: |
-       
-         docker compose build 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-    - name: docker up
-      run: docker compose up 
-    - name: get docker images
-      run: docker compose config --images
-    
-    - name: change docker tag db
-      run:  docker tag mysql:8.0.28 eliyahoulevy727/super-app-db:latest 
-    
-    - name: change docker tag frontend
-      run:  docker tag super-app-frontend eliyahoulevy727/super-app-frontend:latest
-    
-    - name: change docker tag backend
-      run:  docker tag super-app-backend eliyahoulevy727/super-app-backend:latest
+      run: | 
+            docker tag super-app-backend eliyahoulevy727/super-app-backend:latest
+            docker tag super-app-frontend eliyahoulevy727/super-app-frontend:latest
+            docker tag mysql:8.0.28 eliyahoulevy727/super-app-db:latest |
+            docker compose up --build
+ 
  
     - name: get docker images
       run: docker compose config --images
