@@ -34,7 +34,12 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
    
     - name: docker push to registry
-      run: docker compose push 
+      run: |
+             docker push eliyahoulevy727/super-app-frontend:latest
+             docker push eliyahoulevy727/super-app-backend:latest
+             docker push eliyahoulevy727/super-app-db:latest
+      
+      
 
    
 
