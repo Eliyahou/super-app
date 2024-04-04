@@ -25,7 +25,10 @@ jobs:
       run: docker compose config --images
     
     - name: docker change tag
-      run:  docker image tag mysql:8.0.28 eliyahoulevy727/super-app-db:latest   
+      run: |
+            docker image tag mysql:8.0.28 eliyahoulevy727/super-app-db:latest   
+            docker image tag super-app-frontend eliyahoulevy727/super-app-frontend:latest
+            docker image tag super-app-backend eliyahoulevy727/super-app-backend:latest
    
     - name: Login to Docker Hub
       uses: docker/login-action@v2
