@@ -1,11 +1,13 @@
 version: "3.1"
 services:
   backend:
+    image: eliyahoulevy727/super-app-backend:latest
     build: node
     ports:
       - "3000:3000"
     
   frontend:
+    image:  image: eliyahoulevy727/super-app-frontend:latest
     build: php
     ports:
       - "80:80"
